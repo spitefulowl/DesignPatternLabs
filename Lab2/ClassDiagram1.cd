@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Lab1.InitMatrix" Collapsed="true">
+    <Position X="9.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>InitMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1.Matrix&lt;T&gt;">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAABEDAAAAAAAAAAAAAAQAAAAACAAgAAAA=</HashCode>
+      <FileName>Matrix.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab1.MatrixStatistics" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACABIAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAQ=</HashCode>
+      <FileName>MatrixStatistics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1.OrdinaryMatrix&lt;T&gt;" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrdinaryMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1.OrdinaryVector&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAhABAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>OrdinaryVector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab1.SparseMatrix&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SparseMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1.SparseVector&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAhABAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>SparseVector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Lab1.IMatrix&lt;T&gt;">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABEBAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>IMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Lab1.IVector&lt;T&gt;">
+    <Position X="11" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAhABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IVector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

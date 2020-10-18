@@ -11,7 +11,7 @@ namespace Lab1
     class InitMatrix
     {
         private InitMatrix() { }
-        public static void generateMatrix(Matrix<int> input, int non_zero_values, int max_value)
+        public static void FillMatrix(Matrix<int> input, int non_zero_values, int max_value)
         {
             for (int idx = 0; idx < non_zero_values; ++idx)
             {

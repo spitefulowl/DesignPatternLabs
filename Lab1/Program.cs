@@ -12,8 +12,8 @@ namespace Lab1
         {
             Matrix<int> ordinary_matrix = new OrdinaryMatrix<int>(10, 10);
             Matrix<int> sparse_matrix = new SparseMatrix<int>(10, 10);
-            InitMatrix.generateMatrix(ordinary_matrix, 10, 8);
-            InitMatrix.generateMatrix(sparse_matrix, 10, 8);
+            InitMatrix.FillMatrix(ordinary_matrix, 10, 8);
+            InitMatrix.FillMatrix(sparse_matrix, 10, 8);
             MatrixStatistics ordinary_stats = new MatrixStatistics(ordinary_matrix);
             MatrixStatistics sparse_stats = new MatrixStatistics(sparse_matrix);
             Console.WriteLine("Ordinary:  Sum: {0}, Avg: {1}, Max: {2}, NonZero: {3}", ordinary_stats.Sum, 

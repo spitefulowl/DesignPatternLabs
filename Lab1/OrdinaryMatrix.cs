@@ -13,5 +13,13 @@ namespace Lab1
             OrdinaryVector<T> init_matrix = new OrdinaryVector<T>(rows * columns);
             Init(init_matrix, rows, columns);
         }
+
+        internal InitMatrix InitMatrix
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

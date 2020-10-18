@@ -8,10 +8,7 @@ namespace Lab1
 {
     class SparseMatrix<T> : Matrix<T>
     {
-        public SparseMatrix(int rows, int columns)
-        {
-            SparseVector<T> init_matrix = new SparseVector<T>(rows * columns);
-            Init(init_matrix, rows, columns);
-        }
+        public SparseMatrix(int rows, int columns) : 
+            base(new SparseVector<T>(rows * columns), rows, columns) { }
     }
 }

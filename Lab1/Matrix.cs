@@ -8,6 +8,12 @@ namespace Lab1
 {
     abstract class Matrix<T> : IMatrix<T>
     {
+        public Matrix(IVector<T> init_matrix, int rows, int columns)
+        {
+            internal_matrix = init_matrix;
+            Rows = rows;
+            Columns = columns;
+        }
         public T Get(int row, int column)
         {
             if (row >= Rows || column >= Columns) throw new ArgumentOutOfRangeException();
@@ -17,18 +23,9 @@ namespace Lab1
         {
             internal_matrix.Set(row * Columns + column, value);
         }
-        protected void Init(IVector<T> init_matrix, int rows, int columns)
-        {
-            internal_matrix = init_matrix;
-            _rows = rows;
-            _columns = columns;
-        }
 
-        private int _rows;
-        private int _columns;
-
-        public int Rows { get { return _rows; } }
-        public int Columns { get { return _columns; } }
+        public int Rows { get; }
+        public int Columns { get; }
         protected IVector<T> internal_matrix;
     }
 }

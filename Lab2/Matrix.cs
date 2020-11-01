@@ -24,21 +24,10 @@ namespace Lab1
             internal_matrix.Set(row * Columns + column, value);
         }
 
-        public virtual void Draw(IDrawer drawer)
-        {
-            drawer.DrawBorder(Rows, Columns);
-            for (int row = 0; row < Rows; ++row)
-            {
-                for (int column = 0; column < Columns; ++column)
-                {
-                    drawer.DrawCellBorder(row, column);
-                    drawer.DrawCellValue(row, column, Convert.ToInt32(Get(row, column)));
-                }
-            }
-        }
+        public abstract void Draw(IDrawer drawer);
 
         public int Rows { get; }
         public int Columns { get; }
-        protected IVector<T> internal_matrix;
+        private IVector<T> internal_matrix;
     }
 }

@@ -26,6 +26,6 @@ namespace Lab1
 
         public int Rows { get; }
         public int Columns { get; }
-        protected IVector<T> internal_matrix;
+        private IVector<T> internal_matrix;
     }
 }

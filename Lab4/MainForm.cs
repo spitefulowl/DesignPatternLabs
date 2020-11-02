@@ -108,7 +108,7 @@ namespace Lab1
         {
             if (latest_ordinary_matrix != null)
             {
-                latest_ordinary_matrix = latest_sparse_matrix.GetComponent();
+                latest_ordinary_matrix = latest_ordinary_matrix.GetComponent();
                 Draw(latest_ordinary_matrix);
             }
 

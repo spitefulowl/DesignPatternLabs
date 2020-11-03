@@ -40,7 +40,7 @@ namespace Lab1
 
         public void DrawCellValue(int row, int column, int value)
         {
-            my_graphics_canvas.DrawString(value.ToString(), MY_FONT, MY_BURSH, MakeRectangle(row, column));
+            my_graphics_canvas.DrawString(value.ToString(), MY_FONT, MY_BRUSH, MakeRectangle(row, column));
         }
 
         public void SetBorderFlag(bool flag)
@@ -55,7 +55,7 @@ namespace Lab1
         private const int CELL_HEIGHT = 20;
 
         private readonly Pen MY_PEN = new Pen(Color.Black);
-        private readonly Brush MY_BURSH = new SolidBrush(Color.DarkBlue);
+        private readonly Brush MY_BRUSH = new SolidBrush(Color.DarkBlue);
         private readonly Font MY_FONT = new Font("Arial", 10);
 
         private Graphics my_graphics_canvas;

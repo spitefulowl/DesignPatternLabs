@@ -21,11 +21,8 @@ namespace Lab1
                 for (int column = 0; column < Columns; ++column)
                 {
                     int my_value = Convert.ToInt32(Get(row, column));
-                    if (my_value != 0)
-                    {
-                        drawer.DrawCellBorder(row, column);
-                        drawer.DrawCellValue(row, column, my_value);
-                    }
+                    drawer.DrawCellBorder(row, column);
+                    drawer.DrawCellValue(row, column, my_value);
                 }
             }
         }

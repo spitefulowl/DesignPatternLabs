@@ -140,11 +140,11 @@ namespace Lab1
             group_second.AddMatrix(matrix_fourth);
             group_second.AddMatrix(matrix_fifth);
 
-            HorizontalMatrixGroup<int> group_final = new HorizontalMatrixGroup<int>();
+            VerticalMatrixGroup<int> group_final = new VerticalMatrixGroup<int>();
             group_final.AddMatrix(group_first);
             group_final.AddMatrix(group_second);
-            TransposedMatrix<int> transposed = new TransposedMatrix<int>(group_final);
-            transposed.Draw(my_graphics_drawer);
+            group_final.AddMatrix(matrix_first);
+            group_final.Draw(my_graphics_drawer);
         }
     }
 }

@@ -86,6 +86,7 @@
     <Compile Include="SparseMatrix.cs" />
     <Compile Include="SparseVector.cs" />
     <Compile Include="TransposedMatrix.cs" />
+    <Compile Include="VerticalMatrixGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

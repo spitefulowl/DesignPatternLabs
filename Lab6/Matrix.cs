@@ -29,7 +29,7 @@ namespace Lab1
             return this;
         }
 
-        public abstract void ForEach(MatrixFunctor<T> action);
+        public abstract void ForEach(Action<int, int, T> action);
 
         public int Rows { get; }
         public int Columns { get; }

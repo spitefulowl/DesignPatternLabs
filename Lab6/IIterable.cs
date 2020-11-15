@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    delegate void MatrixFunctor<T>(int row, int column, T value);
     interface IIterable<T>
     {
-        void ForEach(MatrixFunctor<T> functor);
+        void ForEach(Action<int, int, T> action);
     }
 }

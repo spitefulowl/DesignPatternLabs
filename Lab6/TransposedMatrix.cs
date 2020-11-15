@@ -13,14 +13,14 @@ namespace Lab1
             internal_matrix = matrix;
         }
 
-        public void ForEach(MatrixFunctor<T> functor)
+        public void ForEach(Action<int, int, T> action)
         {
             for (int row = 0; row < Rows; ++row)
             {
                 for (int column = 0; column < Columns; ++column)
                 {
                     T my_value = Get(row, column);
-                    functor(row, column, my_value);
+                    action(row, column, my_value);
                 }
             }
         }

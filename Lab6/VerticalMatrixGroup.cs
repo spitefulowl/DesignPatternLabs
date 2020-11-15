@@ -23,7 +23,7 @@ namespace Lab1
             get => my_transposed_horizontal_group.Columns;
         }
 
-        public void ForEach(MatrixFunctor<T> functor)
+        public void ForEach(Action<int, int, T> action)
         {
             for (int row = 0; row < Rows; ++row)
             {
@@ -32,7 +32,7 @@ namespace Lab1
                     int my_value = Convert.ToInt32(Get(row, column));
                     if (my_value != 0)
                     {
-                        functor(row, column, Get(row, column));
+                        action(row, column, Get(row, column));
                     }
                 }
             }

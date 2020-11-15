@@ -12,7 +12,7 @@ namespace Lab1
         {
             my_matrices = new List<IMatrix<T>>();
         }
-        public void ForEach(MatrixFunctor<T> functor)
+        public void ForEach(Action<int, int, T> action)
         {
             int real_column_offset = 0;
             foreach (IMatrix<T> matrix in my_matrices)
@@ -24,7 +24,7 @@ namespace Lab1
                         int my_value = Convert.ToInt32(Get(row, real_column_offset + column));
                         if (my_value != 0)
                         {
-                            functor(row, real_column_offset + column, Get(row, real_column_offset + column));
+                            action(row, real_column_offset + column, Get(row, real_column_offset + column));
                         }
                     }
                 }

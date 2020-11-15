@@ -16,13 +16,13 @@ namespace Lab1
             renumbered_columns = new Dictionary<int, int>();
         }
 
-        public void ForEach(MatrixFunctor<T> functor)
+        public void ForEach(Action<int, int, T> action)
         {
             for (int row = 0; row < Rows; ++row)
             {
                 for (int column = 0; column < Columns; ++column)
                 {
-                    functor(row, column, Get(row, column));
+                    action(row, column, Get(row, column));
                 }
             }
         }

@@ -11,13 +11,13 @@ namespace Lab1
         public OrdinaryMatrix(int rows, int columns) : 
             base(new OrdinaryVector<T>(rows * columns), rows, columns) { }
 
-        public override void ForEach(MatrixFunctor<T> functor)
+        public override void ForEach(Action<int, int, T> action)
         {
             for (int row = 0; row < Rows; ++row)
             {
                 for (int column = 0; column < Columns; ++column)
                 {
-                    functor(row, column, Get(row, column));
+                    action(row, column, Get(row, column));
                 }
             }
         }

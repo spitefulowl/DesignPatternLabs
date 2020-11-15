@@ -31,8 +31,8 @@ namespace Lab1
         public MainForm()
         {
             InitializeComponent();
-            my_console_drawer = new ConsoleDrawer();
-            my_graphics_drawer = new GraphicsDrawer(MatrixCanvas.CreateGraphics());
+            new InitCommand(this).Execute();
+            Draw(latest_ordinary_matrix);
         }
 
         private void GenOrdinaryButton_Click(object sender, EventArgs e)
@@ -61,8 +61,8 @@ namespace Lab1
 
         private void Draw(IMatrix<int> matrix)
         {
-            matrix.Draw(my_console_drawer);
-            matrix.Draw(my_graphics_drawer);
+            Painter.Draw(matrix, my_console_drawer);
+            Painter.Draw(matrix, my_graphics_drawer);
         }
 
         private void Clear()
@@ -144,8 +144,108 @@ namespace Lab1
             group_final.AddMatrix(group_first);
             group_final.AddMatrix(group_second);
             group_final.AddMatrix(matrix_first);
-            group_final.Draw(my_graphics_drawer);
-            group_final.Draw(my_console_drawer);
+            Painter.Draw(group_final, my_graphics_drawer);
+        }
+
+        sealed class InitCommand : Command
+        {
+            public InitCommand(MainForm form)
+            {
+                my_form = form;
+            }
+
+            private InitCommand(InitCommand command)
+            {
+                my_form = command.my_form;
+                my_matrix = command.my_matrix;
+            }
+
+            public override object Clone()
+            {
+                return new InitCommand(this);
+            }
+
+            private void MakeZero()
+            {
+                for (int row = 0; row < my_matrix.Rows; ++row)
+                {
+                    for (int column = 0; column < my_matrix.Columns; ++column)
+                    {
+                        my_matrix.Set(row, column, 0);
+                    }
+                }
+            }
+
+            protected override void doExecute()
+            {
+                my_form.my_console_drawer = new ConsoleDrawer();
+                my_form.my_graphics_drawer = new GraphicsDrawer(my_form.MatrixCanvas.CreateGraphics());
+                my_form.RowsBox.Clear();
+                my_form.ColumnsBox.Clear();
+                my_form.NonZeroBox.Text = "10";
+                MakeZero();
+                my_form.latest_ordinary_matrix = my_matrix;
+                my_form.latest_sparse_matrix = null;
+            }
+
+            private IMatrix<int> my_matrix = new OrdinaryMatrix<int>(10, 10);
+            private MainForm my_form;
+        }
+
+        sealed class FillMatrixCommand : Command
+        {
+            public FillMatrixCommand(IMatrix<int> matrix)
+            {
+                my_matrix = matrix;
+            }
+
+            private FillMatrixCommand(FillMatrixCommand command)
+            {
+                my_matrix = command.my_matrix;
+            }
+
+            public override object Clone()
+            {
+                return new FillMatrixCommand(this);
+            }
+
+            protected override void doExecute()
+            {
+                for (int row = 0; row < my_matrix.Rows; ++row)
+                {
+                    for (int column = 0; column < my_matrix.Columns; ++column)
+                    {
+                        my_matrix.Set(row, column, 5);
+                    }
+                }
+            }
+
+            private IMatrix<int> my_matrix;
+        }
+
+        private void FillMatrixButton_Click(object sender, EventArgs e)
+        {
+            new FillMatrixCommand(latest_ordinary_matrix).Execute();
+            Draw(latest_ordinary_matrix);
+        }
+
+        private void ChangerButton_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            if (latest_ordinary_matrix != null)
+            {
+                int random_row = random.Next(0, latest_ordinary_matrix.Rows);
+                int random_column = random.Next(0, latest_ordinary_matrix.Columns);
+                int random_value = random.Next(0, 42);
+                new WriteValueCommand(latest_ordinary_matrix, random_row, random_column, random_value).Execute();
+                Draw(latest_ordinary_matrix);
+            }
+        }
+
+        private void UndoButton_Click(object sender, EventArgs e)
+        {
+            CommandManager.GetInstance().Undo();
+            Draw(latest_ordinary_matrix);
         }
     }
 }

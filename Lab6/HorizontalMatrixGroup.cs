@@ -12,6 +12,7 @@ namespace Lab1
         {
             my_matrices = new List<IMatrix<T>>();
         }
+
         public void ForEach(Action<int, int, T> action)
         {
             int real_column_offset = 0;
@@ -35,14 +36,10 @@ namespace Lab1
         public T Get(int row, int column)
         {
             T result = default(T);
-            try
-            {
-                if (row >= Rows || column >= Columns) throw new ArgumentOutOfRangeException();
-                var matching = FindMatching(column);
-                if (matching.Item1 == null) return default(T);
-                result = matching.Item1.Get(row, matching.Item2);
-            }
-            catch (ArgumentOutOfRangeException e) { }
+            if (row >= Rows || column >= Columns) throw new ArgumentOutOfRangeException();
+            var matching = FindMatching(column);
+            if (row >= matching.Item1.Rows) return result;
+            result = matching.Item1.Get(row, matching.Item2);
             return result;
         }
 
